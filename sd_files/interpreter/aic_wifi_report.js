@@ -13,7 +13,7 @@
 //
 // -----------------------------------------------------------------------------
 // EDIT THESE THREE, then save to the SD card.
-var ENDPOINT = "http://100.64.16.24:8391/api/cardputer/finding"; // tailnet URL of the receiver (deployed 2026-09-14)
+var ENDPOINT = "http://192.168.0.179:8391/api/cardputer/finding"; // trimmapiaserve LAN IP (receiver listens on all interfaces as of 2026-09-14)
 var TOKEN = "CHANGE-ME-SHARED-SECRET"; // paste the receiver's token: ssh trimmapiaserve "grep AIC_FINDING_TOKEN ~/cardputer/receiver.env"
 var DEVICE_ID = "cardputer-01"; // this device's label
 // TICKET is prompted at runtime if the keyboard() helper is available; otherwise
