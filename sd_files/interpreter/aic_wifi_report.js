@@ -22,6 +22,12 @@ var TICKET = "no-ticket";
 // -----------------------------------------------------------------------------
 
 var wifi = require("wifi");
+var dialog = require("dialog");
+// Bruce exposes dialogs as a module (dialog.message / dialog.error), not as bare
+// globals. Alias them so the rest of the script reads cleanly. (Verified against
+// Bruce 1.16.1, the release running on the device.)
+var dialogMessage = dialog.message;
+var dialogError = dialog.error;
 
 function nowMillis() {
     // Date may not exist in the mqjs runtime; fail soft. The server also stamps
@@ -34,10 +40,10 @@ function nowMillis() {
 }
 
 function tryPromptTicket(fallback) {
-    // keyboard(defaultText, maxLen, title) is Bruce's on-device text input.
+    // dialog.prompt(defaultText, maxLen, title) is Bruce's on-device text input.
     // Wrapped so the script still works if the signature differs on a build.
     try {
-        var t = keyboard(fallback, 32, "Ticket #:");
+        var t = dialog.prompt(fallback, 32, "Ticket #:");
         if (t && t.length > 0) return t;
     } catch (e) {}
     return fallback;
