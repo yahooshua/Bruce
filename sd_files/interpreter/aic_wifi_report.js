@@ -13,8 +13,8 @@
 //
 // -----------------------------------------------------------------------------
 // EDIT THESE THREE, then save to the SD card.
-var ENDPOINT = "https://100.64.16.24/api/cardputer/finding"; // tailnet URL of the receiver
-var TOKEN = "CHANGE-ME-SHARED-SECRET"; // must match the receiver's token
+var ENDPOINT = "http://100.64.16.24:8391/api/cardputer/finding"; // tailnet URL of the receiver (deployed 2026-09-14)
+var TOKEN = "CHANGE-ME-SHARED-SECRET"; // paste the receiver's token: ssh trimmapiaserve "grep AIC_FINDING_TOKEN ~/cardputer/receiver.env"
 var DEVICE_ID = "cardputer-01"; // this device's label
 // TICKET is prompted at runtime if the keyboard() helper is available; otherwise
 // this default is used. Set to the NinjaOne ticket for the visit.
